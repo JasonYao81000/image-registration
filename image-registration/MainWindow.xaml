@@ -22,8 +22,8 @@
                 <Label Content="{Binding Value, ElementName=SliderAlpha, IsAsync=True, Mode=OneWay}" ContentStringFormat="Alpha: {0:0.000}"/>
             </StatusBar>
             <Canvas Name="MainCanvas">
-                <Image Name="MainImage" Height="{Binding ActualHeight, ElementName=MainCanvas}"/>
-                <Image Name="SecondImage" Height="{Binding ActualHeight, ElementName=MainCanvas}"/>
+                <Image Name="MainImage" Width="{Binding ActualWidth, ElementName=MainCanvas}"/>
+                <Image Name="SecondImage" Width="{Binding ActualWidth, ElementName=MainCanvas}"/>
             </Canvas>
         </DockPanel>
     </Grid>
