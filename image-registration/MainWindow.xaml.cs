@@ -19,6 +19,9 @@ namespace image_registration {
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window {
+
+        private BitmapImage _image1, _image2;
+
         public MainWindow() {
             InitializeComponent();
         }
@@ -37,9 +40,21 @@ namespace image_registration {
             // Display OpenFileDialog by calling ShowDialog method.
             if (dlg.ShowDialog() == true) {
                 var filename = dlg.FileName;
-                MainImage.Source = new BitmapImage(new Uri(filename));
+                _image1 = new BitmapImage(new Uri(filename));
+                MainImage.Source = _image1;
+            }
+            if (dlg.ShowDialog() == true) {
+                var filename = dlg.FileName;
+                _image2 = new BitmapImage(new Uri(filename));
+                SecondImage.Source = _image2;
             }
         }
+
+        private void SliderAlpha_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e) {
+            MainImage.Opacity = SliderAlpha.Value;
+            SecondImage.Opacity = SliderAlpha.Maximum - SliderAlpha.Value;
+        }
+
         private void MenuItem_Exit_Click(object sender, RoutedEventArgs e) {
             Close();
         }

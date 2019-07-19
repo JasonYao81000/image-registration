@@ -17,11 +17,14 @@
                     <MenuItem Header="Exit" Click="MenuItem_Exit_Click" />
                 </MenuItem>
             </Menu>
-            <Slider DockPanel.Dock="Top" Name="SliderAlpha" Minimum="0" Maximum="1"/>
+            <Slider DockPanel.Dock="Top" Name="SliderAlpha" Minimum="0" Maximum="1" ValueChanged="SliderAlpha_ValueChanged"/>
             <StatusBar DockPanel.Dock="Bottom">
                 <Label Content="{Binding Value, ElementName=SliderAlpha, IsAsync=True, Mode=OneWay}" ContentStringFormat="Alpha: {0:0.000}"/>
             </StatusBar>
-            <Image Name="MainImage"/>
+            <Canvas Name="MainCanvas">
+                <Image Name="MainImage" Height="{Binding ActualHeight, ElementName=MainCanvas}"/>
+                <Image Name="SecondImage" Height="{Binding ActualHeight, ElementName=MainCanvas}"/>
+            </Canvas>
         </DockPanel>
     </Grid>
 </Window>
