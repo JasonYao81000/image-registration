@@ -10,13 +10,17 @@
         <CommandBinding Command="Open" Executed="MenuItem_Open_File_Click" />
     </Window.CommandBindings>
     <Grid>
-        <DockPanel>
+        <DockPanel LastChildFill="True">
             <Menu DockPanel.Dock="Top">
                 <MenuItem Header="File">
                     <MenuItem Header="Open File" Command="Open"/>
                     <MenuItem Header="Exit" Click="MenuItem_Exit_Click" />
                 </MenuItem>
             </Menu>
+            <Slider DockPanel.Dock="Top" Name="SliderAlpha" Minimum="0" Maximum="1"/>
+            <StatusBar DockPanel.Dock="Bottom">
+                <Label Content="{Binding Value, ElementName=SliderAlpha, IsAsync=True, Mode=OneWay}" ContentStringFormat="Alpha: {0:0.000}"/>
+            </StatusBar>
             <Image Name="MainImage"/>
         </DockPanel>
     </Grid>
